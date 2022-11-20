@@ -1,19 +1,20 @@
 // save reference to important DOM elements
-//var timeDisplayEl = $('#time-display');
+var timeDisplayEl = $('#time-display');
 
 // handle displaying the time through moment.js
-/*function displayTime() {
-  var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
-  timeDisplayEl.text(rightNow);
+function displayTime() {
+    var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
+    timeDisplayEl.text(rightNow);
 }
-*/
+
 var WorkDayPlanner = [];
+
 //The loop and array so far..
-for (time= 9; time <= 17; time++) {
-    var id= time -9;
+for (time = 9; time <= 17; time++) {
+    var id = time - 9;
     var dataPlanner = "";
     var dpHour = 0;
-    var ampm= "";
+    var ampm = "";
 
     if (time === 12) {
         dpHour = 12;
@@ -23,34 +24,35 @@ for (time= 9; time <= 17; time++) {
         ampm = "pm";
     } else if (time < 12) {
         dpHour = time;
-        ampm ="am";
+        ampm = "am";
     }
     dpHour = dpHour.toString();
 
     dataPlanner = {
         id: id,
-        dpHour:dpHour,
-        time:time,
-        ampm:ampm,
-        dataPlanner:dataPlanner,
+        dpHour: dpHour,
+        time: time,
+        ampm: ampm,
+        dataPlanner: dataPlanner,
     };
     WorkDayPlanner.push(dataPlanner);
 }
 //Trying another time display header
-function currentDate() {
-    var dDate = moment().format("dddd,MMM Do");
-    $('#currentDay').text(dDate);
+/*function currentDate() {
+    var dDate = moment().format('MMMM Do YYYY, h:mm:ss a');
+    $("#currentDay").text(dDate);
 }
+*/
+
+
 // Where the localStorage will store data
 function storePlannerData() {
-    WorkDayPlanner.forEach(function(hour) {
-        $("#"+hour.id).val(hour.dataPlanner);
-    });
+    localStorage.setItem("dayPlanner", JSON.stringify(WorkDayPlanner));
 }
 //The Display from localStorage for data display
-function plannerDataDisplayed(){
+function plannerDataDisplayed() {
     WorkDayPlanner.forEach(function (hour) {
-        $("#"+ hour.id).val(hour.dataPlanner);
+        $("#" + hour.id).val(hour.dataPlanner);
     });
 }
 
@@ -58,19 +60,19 @@ function plannerDataDisplayed(){
 function dataLoading() {
     var DataLoad = JSON.parse(localStorage.getItem("dayPlanner"));
     if (DataLoad) {
-        WorkDayPlanner= dataLoading;
+        WorkDayPlanner = DataLoad;
     }
     storePlannerData();
     plannerDataDisplayed();
 }
 
 WorkDayPlanner.forEach(function (hour) {
-    var therow = $('<form>');
+    var therow = $("<form>");
     therow.addClass("row");
     $(".container").append(therow);
 
     var theField = $("<div>");
-    therow.addClass("col-md-2 hour");
+    theField.addClass("col-md-2 hour");
     theField.text(hour.dpHour + hour.ampm);
 
     var theInput = $("<div>");
@@ -82,11 +84,11 @@ WorkDayPlanner.forEach(function (hour) {
     //compare the times - color coding
     if (hour.time == moment().format("HH")) {
         HourData.addClass("present");
-    }   else if (hour.time < moment().format("HH")) {
+    } else if (hour.time < moment().format("HH")) {
         HourData.addClass("past");
-    }    else if (hour.time > moment().format("HH")) {
+    } else if (hour.time > moment().format("HH")) {
         HourData.addClass("future");
-    }    
+    }
     theInput.append(HourData);
 
     // create the save button for the end of each row
@@ -95,12 +97,29 @@ WorkDayPlanner.forEach(function (hour) {
 
     //appending the elements to the row
     saveEndButton.append(saveButton)
-    therow.append(theField, theInput, saveButton);
+    therow.append(theField, theInput, saveEndButton);
 });
 
 //save button functions are enabled here
+$(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    //saves the information to the array here
+    var SaveBox = $(this).siblings(".description").children().attr("id");
+    WorkDayPlanner[SaveBox].dataPlanner = $(this)
+        .siblings(".description")
+        .children()
+        .val();
+
+    storePlannerData();
+    plannerDataDisplayed();
+});
 
 //helps display time from function above in line 5
-//displayTime();
-//setInterval(displayTime, 1000);
-currentDate();
+displayTime();
+setInterval(displayTime, 1000);
+
+
+//gets the current data on the page load
+//currentDate();
+//will load the data for the page
+dataLoading();
