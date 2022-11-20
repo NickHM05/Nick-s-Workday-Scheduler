@@ -7,6 +7,7 @@
   timeDisplayEl.text(rightNow);
 }
 */
+var WorkDayPlanner = [];
 //The loop and array so far..
 for (time= 9; time <= 17; time++) {
     var id= time -9;
@@ -27,7 +28,7 @@ for (time= 9; time <= 17; time++) {
     dpHour = dpHour.toString();
 
     dataPlanner = {
-        id: id;
+        id: id,
         dpHour:dpHour,
         time:time,
         ampm:ampm,
