@@ -46,8 +46,38 @@ function storePlannerData() {
         $("#"+hour.id).val(hour.dataPlanner);
     });
 }
+//The Display from localStorage for data display
+function plannerDataDisplayed(){
+    WorkDayPlanner.forEach(function (hour) {
+        $("#"+ hour.id).val(hour.dataPlanner);
+    });
+}
 
 //Loading the Data
+function dataLoading() {
+    var DataLoad = JSON.parse(localStorage.getItem("dayPlanner"));
+    if (DataLoad) {
+        WorkDayPlanner= dataLoading;
+    }
+    storePlannerData();
+    plannerDataDisplayed();
+}
+
+WorkDayPlanner.forEach(function (hour) {
+    var therow = $('<form>');
+    therow.addClass("row");
+    $(".container").append(therow);
+
+    var theField = $("<div>");
+    therow.addClass("col-md-2 hour");
+    theField.text(hour.dpHour + hour.ampm);
+
+    var theInput = $("<div>");
+    theInput.addClass("col-md-9 description p-0");
+
+    var HourData = $("<textarea>");
+    HourData.attr("id", hour.id);
+})
 //helps display time from function above in line 5
 //displayTime();
 //setInterval(displayTime, 1000);
