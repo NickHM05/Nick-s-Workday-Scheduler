@@ -78,7 +78,28 @@ WorkDayPlanner.forEach(function (hour) {
 
     var HourData = $("<textarea>");
     HourData.attr("id", hour.id);
-})
+
+    //compare the times - color coding
+    if (hour.time == moment().format("HH")) {
+        HourData.addClass("present");
+    }   else if (hour.time < moment().format("HH")) {
+        HourData.addClass("past");
+    }    else if (hour.time > moment().format("HH")) {
+        HourData.addClass("future");
+    }    
+    theInput.append(HourData);
+
+    // create the save button for the end of each row
+    var saveButton = $("<i class='far fa-save fa-lg'></i>");
+    var saveEndButton = $("<button>").addClass("col-md-1 saveBtn");
+
+    //appending the elements to the row
+    saveEndButton.append(saveButton)
+    therow.append(theField, theInput, saveButton);
+});
+
+//save button functions are enabled here
+
 //helps display time from function above in line 5
 //displayTime();
 //setInterval(displayTime, 1000);
