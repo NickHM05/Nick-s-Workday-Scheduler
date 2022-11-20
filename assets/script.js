@@ -1,11 +1,54 @@
 // save reference to important DOM elements
-var timeDisplayEl = $('#time-display');
+//var timeDisplayEl = $('#time-display');
 
 // handle displaying the time through moment.js
-function displayTime() {
+/*function displayTime() {
   var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
   timeDisplayEl.text(rightNow);
 }
+*/
+//The loop and array so far..
+for (time= 9; time <= 17; time++) {
+    var id= time -9;
+    var dataPlanner = "";
+    var dpHour = 0;
+    var ampm= "";
 
-displayTime();
-setInterval(displayTime, 1000);
+    if (time === 12) {
+        dpHour = 12;
+        ampm = "pm";
+    } else if (time > 12) {
+        dpHour = time - 12;
+        ampm = "pm";
+    } else if (time < 12) {
+        dpHour = time;
+        ampm ="am";
+    }
+    dpHour = dpHour.toString();
+
+    dataPlanner = {
+        id: id;
+        dpHour:dpHour,
+        time:time,
+        ampm:ampm,
+        dataPlanner:dataPlanner,
+    };
+    WorkDayPlanner.push(dataPlanner);
+}
+//Trying another time display header
+function currentDate() {
+    var dDate = moment().format("dddd,MMM Do");
+    $('#currentDay').text(dDate);
+}
+// Where the localStorage will store data
+function storePlannerData() {
+    WorkDayPlanner.forEach(function(hour) {
+        $("#"+hour.id).val(hour.dataPlanner);
+    });
+}
+
+//Loading the Data
+//helps display time from function above in line 5
+//displayTime();
+//setInterval(displayTime, 1000);
+currentDate();
