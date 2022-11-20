@@ -1,3 +1,6 @@
+Resources used:https://cdnjs.com/libraries/jquery
+https://momentjs.com/
+
 # 05 Third-Party APIs: Work Day Scheduler
 
 ## Your Task
@@ -15,11 +18,11 @@ SO THAT I can manage my time effectively
 ```
 
 ## Acceptance Criteria
-
+ 3 out of 13 = 23%
 ```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
+Done GIVEN I am using a daily planner to create a schedule
+Done WHEN I open the planner
+Done THEN the current day is displayed at the top of the calendar
 WHEN I scroll down
 THEN I am presented with timeblocks for standard business hours
 WHEN I view the timeblocks for that day
