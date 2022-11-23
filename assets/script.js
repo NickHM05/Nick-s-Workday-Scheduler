@@ -37,13 +37,6 @@ for (time = 9; time <= 17; time++) {
     };
     WorkDayPlanner.push(dataPlanner);
 }
-//Trying another time display header
-/*function currentDate() {
-    var dDate = moment().format('MMMM Do YYYY, h:mm:ss a');
-    $("#currentDay").text(dDate);
-}
-*/
-
 
 // Where the localStorage will store data
 function storePlannerData() {
@@ -72,11 +65,11 @@ WorkDayPlanner.forEach(function (hour) {
     $(".container").append(therow);
 
     var theField = $("<div>");
-    theField.addClass("col-md-2 hour");
+    theField.addClass("col-sm-2 hour");
     theField.text(hour.dpHour + hour.ampm);
 
     var theInput = $("<div>");
-    theInput.addClass("col-md-9 description p-0");
+    theInput.addClass("col-sm-9 description p-0");
 
     var HourData = $("<textarea>");
     HourData.attr("id", hour.id);
@@ -93,7 +86,7 @@ WorkDayPlanner.forEach(function (hour) {
 
     // create the save button for the end of each row
     var saveButton = $("<i class='far fa-save fa-lg'></i>");
-    var saveEndButton = $("<button>").addClass("col-md-1 saveBtn");
+    var saveEndButton = $("<button>").addClass("col-sm-1 saveBtn");
 
     //appending the elements to the row
     saveEndButton.append(saveButton)
@@ -118,8 +111,5 @@ $(".saveBtn").on("click", function (event) {
 displayTime();
 setInterval(displayTime, 1000);
 
-
-//gets the current data on the page load
-//currentDate();
 //will load the data for the page
 dataLoading();
