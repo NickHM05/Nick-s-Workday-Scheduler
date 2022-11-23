@@ -69,7 +69,7 @@ WorkDayPlanner.forEach(function (hour) {
     theField.text(hour.dpHour + hour.ampm);
 
     var theInput = $("<div>");
-    theInput.addClass("col-sm-9 description p-0");
+    theInput.addClass("col-sm-2 description p-0");
 
     var HourData = $("<textarea>");
     HourData.attr("id", hour.id);
