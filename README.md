@@ -1,12 +1,11 @@
 # Nick's Workday Scheduler
 
 ## Description
-The motivation behind this project was to create an interactive application of web-apis in the form of a beginner developer coding quiz that the user can save their initials and score.
+My motivation for building this application was to use more of the concepts learned from jquery, bootstrap, moment.js, dayjs, and other third party apis to be implemented into a real world application.
 
-This project was built to study some of the puzzeling questions that young developers can face and how to answer them in the form of a game.
+This project was made to create a work day scheduling app that people can use to remember events going on throughout their day and see if it is in red then it is that time currently, if it is in green it is in the future, and is white if its in the past. The user can add different texts to what events they wanna remember, hit the save button, and then the event will persist even if the webpage is closed or refreshed. 
 
-I learned how to implement a timer and a high score webpage for the user to have when playing the game which is something ive never known how to do before.Using a list of lists to create the questions for the user to use was very useful.
-
+This project helped me to learn how to implement a real working clock into a webpage. The process of using bootstrap and jquery to be able to make a webpage with the containers and rows with their text area was interesting to make because it was done in the javascript portion vs doing it all in the index. 
 ## Table of Contents
 
 - [Description](#description)
@@ -26,6 +25,7 @@ URL of the github repository:https://github.com/NickHM05/Nick-s-Workday-Schedule
 
 -Collaborators:
 - Nicholas Mamberger (author) https://github.com/NickHM05
+- Salahuddin Imdad https://github.com/Sal8298
 
 Resource used:https://cdnjs.com/libraries/jquery
 https://momentjs.com/
