@@ -1,7 +1,7 @@
-// save reference to important DOM elements
+// save reference to important the DOM elements that are here
 var timeDisplayEl = $('#time-display');
 
-// handle displaying the time through moment.js
+// handles displaying the time through moment.js and shows the month, day, year, seconds.
 function displayTime() {
     var rightNow = moment().format('MMMM Do YYYY, h:mm:ss a');
     timeDisplayEl.text(rightNow);
@@ -9,7 +9,7 @@ function displayTime() {
 
 var WorkDayPlanner = [];
 
-//The loop and array so far..
+//The loop and array so that the time is formatted. 
 for (time = 9; time <= 17; time++) {
     var id = time - 9;
     var dataPlanner = "";
@@ -27,7 +27,7 @@ for (time = 9; time <= 17; time++) {
         ampm = "am";
     }
     dpHour = dpHour.toString();
-
+//the dataPlanner has the hour time, the id, and the ampm.
     dataPlanner = {
         id: id,
         dpHour: dpHour,
@@ -49,7 +49,7 @@ function plannerDataDisplayed() {
     });
 }
 
-//Loading the Data
+//Loading the Data from local storage is here
 function dataLoading() {
     var DataLoad = JSON.parse(localStorage.getItem("dayPlanner"));
     if (DataLoad) {
@@ -58,7 +58,7 @@ function dataLoading() {
     storePlannerData();
     plannerDataDisplayed();
 }
-
+//Here all the hour data is put into a container added to the row.
 WorkDayPlanner.forEach(function (hour) {
     var therow = $("<form>");
     therow.addClass("row");
@@ -96,7 +96,7 @@ WorkDayPlanner.forEach(function (hour) {
 //save button functions are enabled here
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
-    //saves the information to the array here
+//saves the information to the array here
     var SaveBox = $(this).siblings(".description").children().attr("id");
     WorkDayPlanner[SaveBox].dataPlanner = $(this)
         .siblings(".description")
@@ -111,5 +111,5 @@ $(".saveBtn").on("click", function (event) {
 displayTime();
 setInterval(displayTime, 1000);
 
-//will load the data for the page
+//this will load the data for the page
 dataLoading();
