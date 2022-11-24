@@ -63,7 +63,7 @@ WorkDayPlanner.forEach(function (hour) {
     var therow = $("<form>");
     therow.addClass("row");
     $(".container").append(therow);
-
+//col-sm-2 is the bootstrap class
     var theField = $("<div>");
     theField.addClass("col-sm-2 hour");
     theField.text(hour.dpHour + hour.ampm);
@@ -84,7 +84,7 @@ WorkDayPlanner.forEach(function (hour) {
     }
     theInput.append(HourData);
 
-    // create the save button for the end of each row
+    // create the save button for the end of each row. far fa save is the button icon. 
     var saveButton = $("<i class='far fa-save fa-lg'></i>");
     var saveEndButton = $("<button>").addClass("col-sm-1 saveBtn");
 

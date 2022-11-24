@@ -26,6 +26,7 @@ URL of the github repository:https://github.com/NickHM05/Nick-s-Workday-Schedule
 -Collaborators:
 - Nicholas Mamberger (author) https://github.com/NickHM05
 - Salahuddin Imdad https://github.com/Sal8298
+- Scott McNally (tutor who helped but i dont know his github)
 
 Resource used:https://cdnjs.com/libraries/jquery
 https://momentjs.com/
