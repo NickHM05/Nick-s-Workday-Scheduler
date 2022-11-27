@@ -19,7 +19,7 @@ This project helped me to learn how to implement a real working clock into a web
 My website:https://nickhm05.github.io/Nick-s-Workday-Scheduler/
 URL of the github repository:https://github.com/NickHM05/Nick-s-Workday-Scheduler/
 ## Usage
-![Screenshot of the page](./screenshots/Screenshot%20(129).png"Screenshot Page")
+![Screenshot of the page](./screenshots/Screenshot%20(129).png "Screenshot Page")
 
 ## Credits
 
