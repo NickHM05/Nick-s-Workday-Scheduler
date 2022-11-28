@@ -30,6 +30,7 @@ URL of the github repository:https://github.com/NickHM05/Nick-s-Workday-Schedule
 
 Resource used:https://cdnjs.com/libraries/jquery
 https://momentjs.com/
+dayjs code from last mini project 
 ## License
 
 MIT License
